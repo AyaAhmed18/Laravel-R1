@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ExampleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,3 +65,19 @@ Route::prefix('Web structure')->group(function(){
       return "this is ${page} page";
     })->whereIn('page',['HR','ICT','Marketing','Logistic']);
 });
+
+// Route::fallback(function(){
+//   return redirect('/');
+// });
+Route::get('cv',function(){
+  return view('cv');  //views files HTML files
+});
+Route::get('login',function(){
+  return view('login');  //views files HTML files
+});
+
+Route::post('recieve',function(){
+  return "Data recieved";  //views files HTML files
+})->name('recieve');
+
+Route::get('test1',[ExampleController::class,'test1']);
